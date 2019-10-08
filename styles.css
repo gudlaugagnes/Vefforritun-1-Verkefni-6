@@ -16,8 +16,9 @@ html {
 main {
   margin: 0 auto;
   max-width: 1450px;
-  padding-left: 20px;
   padding-right: 20px;
+  padding-left: 20px;
+  
 }
 
 h1 {
@@ -39,10 +40,9 @@ h1 {
 }
 
 
+/*  grid fyrir efni  */
 
-/* row og column fyrir grid og card */
-
-.grid{
+.grid {
   max-width: 1450px;
   margin: 0 auto;
 }
@@ -50,9 +50,10 @@ h1 {
 .grid__row {
   display: flex;
   flex-direction: column;
-  margin-left: -10px;
   margin-right: -10px;
+  margin-left: -10px;
 }
+
 
 .grid__col {
   width: 100%;
@@ -60,131 +61,53 @@ h1 {
   padding-left: 10px;
 }
 
-.cards__row{
-  margin-left: -10px;
-  margin-right: -10px;
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
 
-}
-
-.cards__col{
-  padding-left: 10px;
-  padding-right: 10px;
-  width: 100%;
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-
-
-
-
-
-
-
-
-/*  >=1490px  */
-@media (min-width: 1490px) {
-  main{
-    padding: 0;
-  }
-
-}
-
-/*  >=1000px  */
-@media (min-width: 1000px) {
-  .grid__col{
-    width: 50%;
-    margin-bottom: 40px;
-  }
-  .cards_col{
-    width: 33.3333333%;
-  }
-}
-
-/*  >=700px  */
-@media (min-width: 700px) {
-  .cards__col{
-    width: 50%;
-  }
-  .cards{
-    margin-bottom: 40px;
-  }
-}
-
-/*  <700px  */
-@media (max-width: 699px) {
-  .grid__col {
-    width: 100%;   
-  }
-
-  .cards__col{
-    width: 100%;
-    margin: 0;
-  }
-
-  .card__content {
-    flex-direction: column;
-  }
-
-  .card {
-    display: flex;
-    flex-direction: column;
-    padding: 0 0 20px 0;
-    border: 0 0 2px 0;
-    border-color: solid #aaa;
-    border-radius: 0;
-    max-width: none;
-    max-height: none;
-    
-  }
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* styles úr verkefni 6 */
+/* grid fyrir cards  */
 
 .cards {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  
+.cards__row {
+    display: flex;
+    flex-direction: column;
+    margin-right: -10px;
+    margin-left: -10px;
+    
+}
+  
+.cards__col {
+  padding-right: 10px;
+    padding-left: 10px;
+    margin-bottom: 20px;
+    width: 100%;
 }
 
+
+
+
+
+
+/* styles úr verkefni 5 */
+
+
+
 .card {
-  height: 100%;
   display: flex;
   flex-direction: column;
-
-  margin-bottom: 10px;
-  padding: 10px;
+  padding: 10px 0;
   width: 100%;
-  max-width: 470px;
-  max-height: 320px;
+  height: 100%;
   overflow: auto;
-
   background-color: #fff;
-  border: 2px solid #aaa;
+  border-bottom: 2px solid #aaa;
   border-radius: 5px;
 }
 
 .card__title {
   margin-bottom: 20px;
-
   font-size: 1.5em;
   line-height: 1;
   word-break: break-word;
@@ -192,6 +115,7 @@ h1 {
 
 .card__content {
   display: flex;
+  flex-direction: column;
   flex: 1;
 }
 
@@ -212,11 +136,9 @@ h1 {
 
 .card__list {
   margin-top: 10px;
-
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-
   list-style: none;
 }
 
@@ -226,5 +148,78 @@ h1 {
 }
 
 .cards--first-flex-item{
-  order: -1;
+    order: -1;
+}
+  
+
+/* media skilgreiningar */
+
+
+
+/*  <700px  */
+@media (max-width: 699px) {
+    .grid__col {
+        width: 100%;   
+      }
+    
+    .cards__col{
+        width: 100%;
+    }
+} 
+
+
+/*  >=700px  */
+@media (min-width: 700px) {
+
+  .cards__col {
+    width: 50%;
+    padding: 0 10px;
+   
+  }
+  .cards {
+    margin-bottom: 40px;
+  }
+
+    .cards__row {
+      flex-direction: row;
+      flex-wrap: wrap;
+      
+    }
+    
+    .card {
+      margin: 0 0 10px 0;
+      padding: 10px;
+      max-width: 470px;
+      max-height: 320px;
+      border: 2px solid #aaa;
+      
+    }
+    .card__content {
+      flex-direction: row;
+    }
+}
+
+
+
+/*  >=1000px  */
+@media (min-width: 1000px) {
+    .grid__col {
+      width: 50%;
+      margin-bottom: 40px;
+    }
+
+    .cards__col {
+      width: calc(100%/3);
+    }
+    .grid__row {
+      flex-direction: row;
+    }
+    
+}
+
+/*  >=1490px  */
+@media (min-width: 1490px) {
+    main {
+      padding: 0;
+    }
 }
