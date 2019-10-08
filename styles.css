@@ -20,8 +20,6 @@ main {
   padding-right: 20px;
 }
 
-/* TODO taka ætti padding af main þegar komið er fyrir ofan hámarksbreidd */
-
 h1 {
   text-align: center;
   margin: 20px 0;
@@ -40,7 +38,14 @@ h1 {
   margin-bottom: 20px;
 }
 
-/* grid fyrir efni, setja þarf upp í html */
+
+
+/* row og column fyrir grid og card */
+
+.grid{
+  max-width: 1450px;
+  margin: 0 auto;
+}
 
 .grid__row {
   display: flex;
@@ -55,19 +60,50 @@ h1 {
   padding-left: 10px;
 }
 
-/* TODO setja upp grid fyrir >= 1000px */
+.cards__row{
+  margin-left: -10px;
+  margin-right: -10px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+
+}
+
+.cards__col{
+  padding-left: 10px;
+  padding-right: 10px;
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
 
 
 
-@media (min-width: 699px) {
-  .grid__col {
-    width: 100%;   
+
+
+
+
+
+/*  >=1490px  */
+@media (min-width: 1490px) {
+  main{
+    padding: 0;
   }
-  .cards__col{
-    width: 100%;
+
+}
+
+/*  >=1000px  */
+@media (min-width: 1000px) {
+  .grid__col{
+    width: 50%;
+    margin-bottom: 40px;
+  }
+  .cards_col{
+    width: 33.3333333%;
   }
 }
 
+/*  >=700px  */
 @media (min-width: 700px) {
   .cards__col{
     width: 50%;
@@ -77,26 +113,50 @@ h1 {
   }
 }
 
-@media (min-width: 1000px) {
-  .grid__col{
-    width: 50%;
-    margin-bottom: 40px;
+/*  <700px  */
+@media (max-width: 699px) {
+  .grid__col {
+    width: 100%;   
   }
-  .cards_col{
-    width:100%/3;
+
+  .cards__col{
+    width: 100%;
+    margin: 0;
   }
+
+  .card__content {
+    flex-direction: column;
+  }
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    padding: 0 0 20px 0;
+    border: 0 0 2px 0;
+    border-color: solid #aaa;
+    border-radius: 0;
+    max-width: none;
+    max-height: none;
+    
+  }
+
 }
 
-@media (min-width: 1490px) {
-  main{
-    padding:0;
-  }
-}
 
 
-/* TODO koma mynd fyrir á öðrum stað í < 1000px */
 
-/* grid fyrir cards */
+
+
+
+
+
+
+
+
+
+
+
+/* styles úr verkefni 6 */
 
 .cards {
   display: flex;
@@ -105,26 +165,8 @@ h1 {
 
 }
 
-/* TODO útfæra grid fyrir cards */
-
-.cards__row{
-  margin-left: -10px;
-  margin-right: -10px;
-
-}
-
-.cards__col{
-  padding-left: -10px;
-  padding-right: -10px;
-}
-
-/*
-  .card kemur óbreytt úr sýnilausn á verkefni 5 fyrir utan responsive stíla og
-  að það fær `height: 100%;`
-  Sýnilausn verður gefin út við lok dags miðvikudaginn 3. okt
-*/
-
 .card {
+  height: 100%;
   display: flex;
   flex-direction: column;
 
@@ -186,7 +228,3 @@ h1 {
 .cards--first-flex-item{
   order: -1;
 }
-
-
-
-/* TODO responsive stílar fyrir .card */
