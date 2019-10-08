@@ -64,6 +64,11 @@ h1 {
 
 }
 
+.grid__row--switch{
+  flex-direction: column-reverse;
+
+}
+
 .grid__col {
   width: 100%;
   padding-right: 10px;
@@ -239,5 +244,5 @@ h1 {
   main {
     padding: 0;
   }
-  
+
 }
